@@ -40,6 +40,8 @@
 \usepackage{lmodern,textcomp}
 \usepackage[utf8]{inputenc} 
 \definecolor{forestgreen}{RGB}{34,139,34}
+\definecolor{costumyellow}{RGB}{255,185,1}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        ALTRES PAQUETS I DEFINICIONS                         %
 %                                                                             %
@@ -512,7 +514,7 @@ Aquesta història a consistit en buscar i instal·lar totes les tecnologies nece
 	\item Instal·lar els paquets necessaris de Node.js.
 	\item Creació del repositori de GitHub.
 \end{itemize}
-\textcolor{forestgreen}{\textbf{Resultat:}} Totes les tasques que s’han descrit en aquesta història s’han completat en el temps estimat. El problema ha vingut a l’hora de començar ha implementar la història 2.8 de l’sprint, ja que hi ha hagut molts requisits emergents que no s’han tingut en compte anteriorment, i per tant, el temps d’aquesta història a augmentat moltíssim.
+\textcolor{forestgreen}{\textbf{Resultat:}} Totes les tasques que s’han descrit en aquesta història s’han completat en el temps estimat. El problema ha vingut a l’hora de començar ha implementar la història "Com a usuari, vull poder registrar-me a la xarxa social" de l’sprint (la qual veurem més endavant), ja que hi ha hagut molts requisits emergents que no s’han tingut en compte anteriorment, i per tant, el temps d’aquesta història a augmentat moltíssim.
 
 \subsubsection{Com a usuari, vull que la xarxa social mantingui una estètica adequada (5 punts)}
 
@@ -547,6 +549,98 @@ Aquesta història ha consistit en crear les entitats de dades que guardarem a la
 	\item Creació de l’entitat “Esdeveniment”
 \end{itemize}
 \textcolor{forestgreen}{\textbf{Resultat:}} Aquesta història va tenir una molt mala estimació de cost, ja que el temps en que s’ha realitzat ha sigut bastant ràpid. Les entitats resultants són les següents:
+
+\begin{figure}[h]
+\includegraphics[width=15cm]{images/image6}
+\centering
+\caption[]{Entitats de l'aplicació.}
+\centering
+\end{figure}
+
+\subsubsection{Com a desenvolupador, vull que la xarxa social tingui un logotip (5 punts)}
+
+Aquesta història ha consistit en la creació d’un logotip per utilitzar en la nostra aplicació web. S’ha dividit en les següents tasques:
+\begin{itemize}
+	\item Buscar Imatges pel logotip.
+	\item Creació del logotip.
+\end{itemize}
+\textcolor{forestgreen}{\textbf{Resultat:}} La tasca s’ha realitzat correctament, i dins de l’estimació donada en punts. Per fer el logotip de l’aplicació, s’han utilitzat les mateixes fonts que s’han triat en la història "Com a usuari, vull que la xarxa social mantingui una estètica adequada" d’aquest sprint. 
+El resultat és el següent:
+
+\begin{figure}[H]
+\includegraphics[width=7cm]{images/image3}
+\centering
+\caption[]{Logotip de l'aplicació.}
+\centering
+\end{figure}
+
+\subsubsection{Com a desenvolupador, vull poder consultar un mapa navegacional de totes les pantalles de la xarxa social (5 punts)}
+
+\textcolor{costumyellow}{\textbf{Resultat:}} Com hem vist anteriorment, la història "Com a desenvolupador, vull posar a punt l'entorn de treball" d’aquest sprint ens a fet perdre molt temps. Temps que s’hagués pogut invertir en fer la resta d’històries. Per tant, al veure que no necessitàvem un mapa navegacional en aquest  sprint, he decidit deixar aquesta història per l’sprint 2.
+
+\subsubsection{Com a desenvolupador, vull fer un disseny previ de les pantalles de la xarxa social (13 punts)}
+
+\textcolor{red}{\textbf{Resultat:}} Durant l’sprint, a l’hora de ficar-me a fer aquesta història, em vaig adonar que el cost d’aquesta era molt elevat, i que per tant era una pèrdua de temps fer aquest disseny. Comptant que el temps per fer el projecte és molt poc i que el seu valor no és molt elevat pel projecte, he decidit retirar aquesta història.
+
+\subsubsection{Com a usuari, vull que la xarxa social estigui en més d'un idioma (5 punts)}
+
+\textcolor{red}{\textbf{Resultat:}} Vaig estar buscant alguna forma de simplificar l’aplicació i ficar els literals (paraules fixes que es troben a l’aplicació) en un mateix fitxer. La solució que vaig trobar era bastant difícil d’implementar i feia pujar els punts d’aquesta història. Conseqüentment, he optat que per cada pàgina de l’aplicació, hi haurà 3 versions (una en anglès, una en castellà i una altra en català). Per tant, la història es retira del backlog inicial.
+
+\subsubsection{Com a usuari, vull poder registrar-me a la xarxa social (5 punts)}
+
+\textcolor{costumyellow}{\textbf{Resultat:}} La història "Com a desenvolupador, vull posar a punt l'entorn de treball" ens ha tret molt de temps d’aquest sprint, i conseqüentment, aquesta història no s’ha pogut acabar i queda per l’sprint 2.
+
+\subsubsection{Com a usuari, vull poder loguejar-me a la xarxa social (5 punts)}
+
+\textcolor{costumyellow}{\textbf{Resultat:}} La història "Com a desenvolupador, vull posar a punt l'entorn de treball" ens ha tret molt de temps d’aquest sprint, i conseqüentment, aquesta història no s’ha pogut ni començar i queda per l’sprint 2.
+
+\subsection{Tecnologies utilitzades}
+
+\subsubsection{Tecnologies Web}
+
+Aquesta tecnologia és necessària per al funcionament de l’aplicació. Si l’aplicació no es troba en al núvol, aquesta no és accessible pels usuaris, i per tant perd el seu valor. \\ \\
+La tecnologia que he triat per utilitzar és diu Heroku (\url{https://www.heroku.com}), i és una plataforma d’aplicacions al núvol. Aquesta plataforma permet tindre la teva pàgina web online les 24h, i a més, té un sistema de storage, on es guarden totes les dades generades pels usuaris de la pàgina.\\ \\
+La URL a la pàgina on es troba l’aplicació d’aquest projecte és: \\
+\url{https://makeyourfriend.herokuapp.com}
+
+\subsubsection{IDE}
+
+Com que el projecte és web, també s’ha d’utilitzar una IDE encarada ha aquest propòsit. La que he triat per aquest projecte es diu IntellIJ WebStorm (\url{https://www.jetbrains.com/webstorm}), i és una IDE que està encarada al Javascript, però que també accepta tot el que vindria a ser els llenguatges de frontend, com HTML o CSS.\\ \\
+La llicencia d’aquesta IDE, és de pagament, però al ser estudiant de la FIB et surt gratuïta.
+
+\subsubsection{Bases de Dades}
+
+Com que l’aplicació és una xarxa social, una base de dades relacional no és tant eficient, ja que sempre ha d’estar buscant a les taules. Conseqüentment, he decidit utilitzar una base de dades no relacional anomenada neo4j (\url{https://neo4j.com}). Aquesta base de dades és una graph database que permet crear nodes (on es guarda la informació de l’usuari, històries o esdeveniments) i seguidament relacionar-los entre ells amb una etiqueta. \\ \\
+La seva eficiència en aquest tipus d’aplicacions, cau en que no cal que tinguem una taula amb totes les amistats. Si volem saber quines amistats té un usuari, ens fiquem al node d’aquest usuari i mirem les arestes que contenen el tag “Amistat”. Aquestes arestes ens porten directament als nodes de les amistats.\\ \\
+Finalment, ni que en aquest sprint no s’hagi fet, segurament serà necessari una base de dades relacional per emmagatzemar les fotografies de l’aplicació i guanyar eficiència. Quan una fotografia es guarda en una base de dades, s’encripta amb un string (que ocupa molt espai), i per tant, costaria molt fer una cerca per la base de dades.
+
+\subsubsection{Framework}
+
+El framework utilitzat pel projecte és Node.js (\url{https://nodejs.org}). És un framework que et facilita totes les feines encarades a web. Els seus llenguatges bàsics són HTML, CSS i Javascript, tot i que pots afegir les funcionalitat que vulguis instal·lant els paquets necessaris al teu projecte.\\ \\
+Finalment, dir que aquest framework et dona molta facilitat per implementar la comunicació client servidor.
+
+\subsubsection{Paquets addicionals de Node.js}
+
+Com he dit a l’apartat anterior, Node.js et permet instal·lar paquets amb funcionalitats extra al teu projecte. Els paquets que s’ha utilitzat en aquest sprints són els següents:
+\begin{itemize}
+	\item \textbf{body-parser:} Aquest paquet ens permet llegir els camps que ha omplert el client directament des del servidor, sense la necessitat d’haver de fer una crida ajax per passar els paràmetres.
+	\item \textbf{bootstrap:} És un framework per HTML, CSS i Javascript que permet fer les pàgines responsive amb facilitat.
+	\item \textbf{dotenv:} ens permet carregar fitxers .env a l’aplicació.
+	\item \textbf{jquery:} És una llibreria de Javascript que et permet escriure el mateix codi de forma més ràpida, i que permet la manipulació del codi HTML de forma senzilla.
+	\item \textbf{jquery-validation:} És un pluguin de jQuery que serveix per validar els diferents formularis que hi puguin haver a l’aplicació (dates, correus electrònics, contrasenyes, etc).
+	\item \textbf{neo4j-driver:} És un driver que permet configurar connexions amb Neo4j, ja explicat a l’apartat 3.3.
+uuid: Ens permet auto generar un identificador únic per a cada node de la base de dades.
+	\item \textbf{pug:} Aquest paquet permet escriure el codi HTML més ràpidament i permet crear bucles d’informació dinàmica a la pàgina web.
+	\item \textbf{font-awesome:} És una llibreria d’icones.
+	\item \textbf{w3-css:} Permet fer dissenys més amistosos per l’usuari de l’aplicació amb facilitat.
+
+\end{itemize}
+
+\subsubsection{Conclusions de l'sprint}
+
+Com podem veure, durant aquest sprint s’han fet menys de la meitat dels punts que estaven previstos. Tot hi això, ja tenim quasi totes les tecnologies necessàries instal·lades a l’aplicació i per tant, serà més fàcil utilitzar-les.\\ \\
+Si que és possible que durant l’sprint 2 sorgeixi la necessitat d’alguna tecnologia més, per preveig que seran molt poques.
+
 
 \section{Sprint 2}
 
