@@ -636,7 +636,7 @@ uuid: Ens permet auto generar un identificador únic per a cada node de la base 
 
 \end{itemize}
 
-\subsubsection{Conclusions de l'sprint}
+\subsection{Conclusions de l'sprint}
 
 Com podem veure, durant aquest sprint s’han fet menys de la meitat dels punts que estaven previstos. Tot hi això, ja tenim quasi totes les tecnologies necessàries instal·lades a l’aplicació i per tant, serà més fàcil utilitzar-les.\\ \\
 Si que és possible que durant l’sprint 2 sorgeixi la necessitat d’alguna tecnologia més, per preveig que seran molt poques.
@@ -644,13 +644,136 @@ Si que és possible que durant l’sprint 2 sorgeixi la necessitat d’alguna te
 
 \section{Sprint 2}
 
+\subsection{Resum de l'sprint}
+
+L’sprint a complert amb els requists establerts inicialment. Dels 73 punts definits en aquest sprint, s'han complert tots.\\ \\
+Com s'ha comentat en l'sprint anterior, ficar a punt l'entorn de treball, em va treure molt temps del que s'havia establert inicialement. Com que l'entorn ja es va ficar a punt en l'sprint anterior, en aquest sprint no hem tingut el mateix problema, i per tant s'ha pogut complir amb tots els requeriments.\\ \\
+En els apartats següents veurem quines són les tasques que s’han dut a terme en aquest sprint i quin ha sigut el seu resultat. També es veuran quines han sigut les tecnologies que s'han incorporat al projecte.
+
+\subsection{Descripció i resultat de les històries d’usuari}
+
+\subsubsection{Com a usuari, vull poder registrar-me a la xarxa social (5 punts)}
+
+Aquesta història ha consistit en l'implementació d'una pàgina de registre per la xarxa social. La pàgina de registre conté els següents camps:
+\begin{itemize}
+	\item \textbf{Nom:} El camp contindrà el nom de l'usuari (o el nom amb el que vulgui ser reconegut pel sistema).
+	\item \textbf{Cognoms:} El camp contindrà els cognoms de l'usuari.
+	\item \textbf{Gènere:} En aquest camp s'indicarà si l'usuari és un home o una dona.
+	\item \textbf{Data de naixament:} En aquest camp s'informarà la data de naizament de l'usuari.
+	\item \textbf{Correu Electrónic:} En aquest camp s'informarà el correu electronic de l'usuari, el qual servirà com identificador del sistema.
+	\item \textbf{Sobre tu:} En aquest camp es pot afagir una breu descripció sobre el propi usuari.
+	\item \textbf{Contrasenya:} El camp es repeteix dues vegades (per assegurar que t'en enrecordaràs de la contrasenya). la contrasenya haurà de tindre un mínim de 8 caracters per a que sigui vàlida.
+	\item \textbf{Codi d'invitació:} En aquest camp s'haurà d'informar el codi que l'administrador haurà informat amb anterioritat a l'usuari.
+\end{itemize}
+\textcolor{forestgreen}{\textbf{Resultat:}} L'història s'ha realitzat amb exit, tot i que el seu cost estava una mica mal estimat. En veritat ha portat més dels 5 punts estimats inicialment.
+
+\subsubsection{Com a usuari, vull poder loguejar-me a la xarxa social (5 punts)}
+
+L'història ha consistit en poder fer login a l'aplicació informant el correu electrónic i la contrasenya registrats en l'història anterior.\\ \\
+\textcolor{forestgreen}{\textbf{Resultat:}} L'història no ha portat cap problema i s'ha realitzat amb el cost estimat.
+
+
+\subsubsection{Com a desenvolupador vull dissenyar una encriptació de les contrasenyes (5 punts)}
+
+Aquesta història s'ha dividit en dos tasques:
+\begin{itemize}
+	\item Encriptació de la contrasenya.
+	\item Manutenció de les sessions dels usuaris.
+\end{itemize}
+\textcolor{forestgreen}{\textbf{Resultat:}} La primera tasca de l'història s'ha utilitzat la llibreria crypto de Node.js, la qual et permet encriptar una contrasenya en base64 utilitzant l'algoritme "sha256". En la segona tasca s'ha utilitzat la llibreria client-session de Node.js, la qual permet mantenir sessions mitjançant les cookies les navegador utilitzat. Els punts de l'història s'han estimat adequadament.
+
+\subsubsection{Com a usuari, vull poder consultar i editar el meu perfil (8 punts)}
+
+L'història s'ha dividit en dues parts:
+\begin{itemize}
+	\item Oferir l'oportunitat de poder consultar el teu propi perfil.
+	\item Poder editar el teu propi perfil. Aquesta tasca s'ha dividit en dos més:
+	\begin{itemize}
+		\item Poder canviar la teva foto de perfil (o ficar-ne una en cas de que no en tinguis).
+		\item Poder canviar la descripció del teu usuari (el camp "Sobre tu" que s'informa en el registre d'un usuari).
+	\end{itemize}
+\end{itemize}
+\textcolor{forestgreen}{\textbf{Resultat:}} Els punts de l'història s'han estimat correctament, i s'ha aconseguit tot el que es demanava. S'ha de dir, que la part de canviar la fotografia de perfil s'ha dut a terme en l'història "Com a usuari vull poder pujar fotografies a la xarxa social" la qual es veurà més endavant.
+
+\subsubsection{Com a usuari, vull poder veure una pantalla amb totes les funcionalitats de la xarxa social (5 punts)}
+
+Aquesta història a consistit en crear un pantalla on l'usuari pugués veure amb facilitat totes les funcions de la xarxa social. Les diferents funcions que té són: El meu perfil, les meves històries, els meus amics, els meus esdeveniments, línea temporal, buscar amics, publicar història.\\ \\
+\textcolor{forestgreen}{\textbf{Resultat:}} L'história s'ha estimat de forma adequada i s'ha dut a terme correctament.
+
+
+\subsubsection{Com a desenvolupador, vull poder consultar un mapa navigacional de totes les pantalles de la xarxa social (5 punts)}
+
+L'història ha consistit en crear un mapa navigacional de les pantalles que pot utilitzar l'usuari del sistema (amb usuari ens referim a que no és un administrador de la xarxa), utilitzant nomencaltura UML.\\ \\
+\textcolor{forestgreen}{\textbf{Resultat:}} L'história s'ha estimat de forma adequada i s'ha dut a terme correctament. El resultat és el següent:
+
+\begin{figure}[H]
+\includegraphics[width=15cm]{images/image9}
+\centering
+\caption[]{Mapa navigacional de l'aplicació (Només usuari).}
+\centering
+\end{figure}
+Com bé podem veure, en aquest mapa navigacional, es pot observar quines seràn les diferents pantalles del sistema i com arrivar a cada una d'elles. Remarcar, que aquestes pantalles només representen les pantalles accessibles pels usuaris, ja que un administrador tindrà la funcionalitat de poder crear esdeveniments.
+
+
+\subsubsection{Com a usuari, vull poder publicar una història al meu mur (20 punts)}
+
+L'història ha consistit en donar l'oportunitat a l'usuari per poder publicar histiories al seu mur. Per poder fer-ho, s'ha hagut de rellenar un formulari amb els següents camps:
+\begin{itemize}
+	\item \textbf{Imatge o fotografia:} Et permet penjar una fotografia a l'història.
+	\item \textbf{Descripció:} Permet afegir una descripció a l'història.
+\end{itemize}
+\textcolor{forestgreen}{\textbf{Resultat:}} S'ha dut a terme correctament i s'ha estimat adequadament. Igual que l'història anterior, la part de penjar la fotogràfia s'ha dit a terme en l'història "Com a usuari vull poder pujar fotografies a la xarxa social".
+
+\subsubsection{Com a usuari vull poder pujar fotografies a la xarxa social (5 punts)}
+
+L'història ha consistit en poder pujar fotografies a la xarxa social, tant al teu perfil com a les històries que es vulguin publicar.\\ \\
+\textcolor{forestgreen}{\textbf{Resultat:}} La tasca s'ha dut a terme correctament, tot i que el temps que s'ha utilitzat per completar-la s'ha allargat més del que s'havia previst. Per poder pujar fotografies a la xarxa social he agut d'utilitzar una llibreria de Node.js anomenada multer, la qual et permet pujar fotografies de forma senzilla.\\ \\
+Inicialment, volia fer que es pengessin les fotografies utilitzant un drag \& drop des de l'escriptori de l'ordinador fins a la pàgina web. Per fer-ho he trobat moltes complicacions, cosa que ha comportat la creació d'una nova història: "Com a usuari vull poder penjar fotografies arrastrant-les directament al navegador". 
+
+\subsection{Tecnologies utilitzades}
+
+\subsubsection{Bases de Dades}
+
+En l'sprint anterior, s'havia comentat de que les fotografies s'emmagatzemarien utilitzant una base de dades SQL, tot i que aixó al final no ha sigut possible.\\ \\
+He estat intentant que en el moment que l'imatge arrivés al servidor, aquesta es guardés a la base de dades SQL (postgres), peró no hi ha hagut manera d'aconseguir-ho, i per tant les imatges es guarden en una jerarquia de directoris al matex servidor.\\ \\
+Les fotografies de perfil es guardaràn en el directori "uploadsProfile" i les imatges de les històries es guardaràn en el directori "uploadsPost". Una vegada les imatges estiguin guardades en el directori corresponent, s'actualitzaràn els camps foto de les entitats Usuari i Història esmentades en l'sprint anterior.
+
+\subsubsection{Paquets addicionals de Node.js}
+
+En aquest sprint s'han utilitzat els següents paquets addicionals de Node.js:
+\begin{itemize}
+	\item \textbf{crypto:} Aquest paquet ens permet encriptar les contrasenyes dels usuaris, en base64, utilitzant diferents algoritmes.
+	\item \textbf{client-session:} Paquet que ens permetrà mantenir les sessions dels usuaris.
+	\item \textbf{multer:} Paquet que permet al client penjar fotografies al servidor utilitzant funcions middleware.
+\end{itemize}
+
+\subsection{Conclusions de l'sprint}
+
+Aquest sprint s'ha finalitzat correctament i dins del període establert, tot i que també n'ha sortit una nova història, la qual es durà a terme en l'sprint 3.
+
 \section{Sprint 3}
+
+\subsection{Resum de l'sprint}
+
+\subsection{Descripció i resultat de les històries d’usuari}
 
 \section{Sprint 4}
 
+\subsection{Resum de l'sprint}
+
+\subsection{Descripció i resultat de les històries d’usuari}
+
 \section{Sprint 5}
 
+\subsection{Resum de l'sprint}
+
+\subsection{Descripció i resultat de les històries d’usuari}
+
 \section{Sprint 6}
+
+\subsection{Resum de l'sprint}
+
+\subsection{Descripció i resultat de les històries d’usuari}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 CONCLUSIONS                                 %
