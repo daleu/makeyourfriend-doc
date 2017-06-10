@@ -35,10 +35,11 @@
 %    Pero el mes recomanable es fer servir utf8 (unicode 8)                   %
 %                                          (si el vostre editor ho permet)    % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref}
 \usepackage{float}
 \usepackage{lmodern,textcomp}
 \usepackage[utf8]{inputenc} 
-
+\definecolor{forestgreen}{RGB}{34,139,34}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        ALTRES PAQUETS I DEFINICIONS                         %
 %                                                                             %
@@ -471,22 +472,91 @@ He decidit puntuar tota la secció ambiental amb 0 punts, ja que el projecte no 
 \section{Introducció}
 
 En aquest capítol, es definirà quin ha sigut el seguiment del projecte i com s'ha dut a terme. \\ \\
-Ja que en el projecte s'utilitzen les metodologies àgils, s'ha definit un product backlog inicial amb totes les tasques a realitzar durant el projecte. A més, la planificació temporal s'ha dividit en 6 sprints:
+Ja que en el projecte s'utilitzen les metodologies àgils, s'ha definit un product backlog inicial amb totes les històries a realitzar durant el projecte. A més, la planificació temporal s'ha dividit en 6 sprints:
 \begin{itemize}
 	\item 3 Sprints pertinents al desenvolupament de la xarxa social.
 	\item 2 Sprints pertinents al desenvolupament de l'eina de gestió.
-	\item 1 Sprint pertinant a l'apartat de millores.
+	\item 1 Sprint pertinant a la part de millores.
 \end{itemize}
-
+Abans de realitzar cada un dels sprints, es seleccionen les històries del backlog que es realitzaràn. Quan aquest finalitza, les històries que no s'han acabat es retornen al backlog, o en casos molt específics, es descarten del projecte.\\ \\
+En aquesta secció es descriurà quin ha sigut el backlog inicial, i com s'ha procedit en cada un dels sprints.
+\newpage
 \section{Product Backlog}
 
-\begin{table}[]
+El product backlog inicial del projecte ha sigut el següent:
+
+\begin{table}[H]
 \centering
 \includegraphics[width=15cm]{images/taula8}
 \caption[Taula 7.5]{Product Backlog}
 \centering
 \end{table}
 
+\section{Sprint 1}
+
+\subsection{Resum de l'sprint}
+
+L’sprint no ha anat dins dels marges esperats. Dels 64 punts definits en aquest sprint, només se’n han aconseguit 31.\\ \\
+Això es deu al poc coneixement de les tecnologies que s’havien d’utilitzar a priori, i que per tant s’ha fet molt difícil a l’hora d’utilitzar-les. També cal dir que moltes d’aquestes tecnologies s’han hagut de buscar en el moment que ha sortit la necessitat d’utilitzar-les i s’han convertit en requisits emergents dins del projecte.\\ \\
+En els apartats següents veurem quines són les tasques que s’han dut a terme en aquest sprint i quin ha sigut el seu resultat. 
+
+\subsection{Descripció i resultat de les històries d’usuari}
+
+\subsubsection{Com a desenvolupador, vull posar a punt l'entorn de treball (13 punts)}
+
+Aquesta història a consistit en buscar i instal·lar totes les tecnologies necessàries per posar en marxa el projecte. S’ha dividit en les següents tasques:
+\begin{itemize}
+	\item Instal·lar IntellIJ Webstorm.
+	\item Instal·lar Node.js.
+	\item Buscar servei de núvol on puguem penjar la pàgina web.
+	\item Instal·lar els paquets necessaris de Node.js.
+	\item Creació del repositori de GitHub.
+\end{itemize}
+\textcolor{forestgreen}{\textbf{Resultat:}} Totes les tasques que s’han descrit en aquesta història s’han completat en el temps estimat. El problema ha vingut a l’hora de començar ha implementar la història 2.8 de l’sprint, ja que hi ha hagut molts requisits emergents que no s’han tingut en compte anteriorment, i per tant, el temps d’aquesta història a augmentat moltíssim.
+
+\subsubsection{Com a usuari, vull que la xarxa social mantingui una estètica adequada (5 punts)}
+
+Aquesta història  ha consistit en buscar els colors o fonts (tipus de lletra) per a que la pàgina web tingui una estètica agradable a la vista de l’usuari. S’ha dividit en les següents tasques:
+\begin{itemize}
+	\item Buscar els colors primaris.
+	\item Buscar una font.
+\end{itemize}
+\textcolor{forestgreen}{\textbf{Resultat:}} No ha sigut molt difícil trobar els colors primaris i les fonts principals de l’aplicació. Els colors primaris són els següents:
+
+\begin{figure}[h]
+\includegraphics[width=12cm]{images/image1}
+\centering
+\caption[]{Paleta de colors de l'aplicació.}
+\centering
+\end{figure}
+
+Per troba’ls, he utilitzat un eina que es diu \textbf{paletton}, la qual et permet combinar colors de forma senzilla. Per utilitzar-la podeu entrar a la següent URL: \\ \\
+\url{http://paletton.com/\#uid=5300u0kqALsd8VjkyQ8B3GbBuoR} \\ \\
+L’aplicació estarà composta per dos fonts:
+\begin{itemize}
+	\item \textbf{Montserrat:} És la font que s’utilitzarà en els títols.
+	\item \textbf{Raleway:} S’utilitzarà per la resta de text de l’aplicació.
+\end{itemize}
+
+\subsubsection{Com a desenvolupador, vull crear les entitats que es faran servir en la primera part del projecte (8 punts)}
+
+Aquesta història ha consistit en crear les entitats de dades que guardarem a la base de dades. S’ha dividit en les següents tasques:
+\begin{itemize}
+	\item Creació de l’entitat “Usuari”
+	\item Creació de l’entitat “Història”
+	\item Creació de l’entitat “Esdeveniment”
+\end{itemize}
+\textcolor{forestgreen}{\textbf{Resultat:}} Aquesta història va tenir una molt mala estimació de cost, ja que el temps en que s’ha realitzat ha sigut bastant ràpid. Les entitats resultants són les següents:
+
+\section{Sprint 2}
+
+\section{Sprint 3}
+
+\section{Sprint 4}
+
+\section{Sprint 5}
+
+\section{Sprint 6}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 CONCLUSIONS                                 %
