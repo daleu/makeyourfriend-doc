@@ -309,7 +309,7 @@ Opcional. Última tasca de desenvolupament del producte, on es contemplarà mill
 \subsubsection{Documentació i Defensa}
 Aquesta fase consistirà a acabar tota la documentació (memòria del projecte) i revisar que aquesta sigui correcta. La documentació s’anirà fent en les fases anteriors. A part, també es prepararà la defensa del projecte.\\ \\
 La memòria del projecte inclourà tota la documentació redactada en el mòdul de GEP i la documentació derivada de les fases anteriors. El document final i la defensa tenen com a precedència totes les tasques anteriors del projecte.
-\newpage
+
 \subsection{Calendari}
 
 \subsubsection{Estimació d'hores}
@@ -347,6 +347,7 @@ La memòria del projecte inclourà tota la documentació redactada en el mòdul 
 \centering
 \end{figure}
 
+\clearpage
 \section{Gestió Econòmica}
 
 \subsection{Consideracions inicials}
@@ -374,7 +375,7 @@ A continuació trobem una taula amb el cost de mercat i el cost estimat d’aque
 
 \begin{table}[H]
 \centering
-\includegraphics[width=15cm]{images/taula2}
+\includegraphics[width=11cm]{images/taula2}
 \caption[Taula 7.1]{Costos directes}
 \centering
 \end{table}
@@ -911,6 +912,231 @@ L'sprint s'ha dut a terme dins dels límits establerts i, com s'ha pogut veure e
 \subsection{Descripció i resultat de les històries d’usuari}
 
 \subsection{Conclusions de l'sprint}
+
+\chapter{Informació Tècnica}
+
+\section{Introducció}
+
+En aquest capítol, explicaré com s'ha dissenyat el software, com s'ha implementat i quines proves s'han fet per validar el software. D'aquesta forma, que en el moment que algu vulgui continuar amb el desenvolupament del software, no tingui cap problema.
+
+\section{Disseny}
+\subsection{Arquitectura}
+L'aplicació s'estructurarà seguint l'arquitectura en tres capes. Concretament utilitzarem la capa de presentació, la capa de negoci i la capa de dades. D'aquesta forma, aconseguim tenir les diferents funcionalitats del sistema separades pel tipus d'objectiu que tenen.\\ \\
+Seguidament, descriurem els objectius de cada una de les capes de forma breu.
+
+\subsubsection{Capa de Presentació}
+
+Aquesta capa és la responsble de l'interacció amb l'usuari. \\ \\
+Per exemple, anem a suposar que un usuari vol crear una nova història. Aquest indroduirà la descripció de l'història, i opcionalement, una fotogràfia. Seguidament clicarà el botó de publicar història. Les dades que ha introduït l'usuari s'enviaràn a la capa de negoci.\\ \\
+La capa de presentació, no serveix només per que l'usuari pugui introduir dades. En aquesta capa també es mostres les dades que conté l'aplicació a l'usuari, de forma que aquestes es puguin entendre amb facilitat.
+
+\subsubsection{Capa de Negoci}
+
+La capa de negoci, és la capa que conté tota la lógica del sistema: transformació de dades, manteniment de les sessions d'usuari, transferencia de dades entre la capa de dades i la capa de presentació, execució d'algoritmes dels sistema, etc. \\ \\
+Seguint l'exemple anterior, una vegada les dades de la nova història arriven a la capa de negoci, aquestes es transformen de forma que siguin acceptables per a la capa de dades. Adicionalement, s'agafa el moment en que s'ha prododuït la nova història, i l'usuari que la fet. Una vegada s'han fet totes les transformacions pertinents, s'envia a la capa de dades.
+
+\subsubsection{Capa de Dades}
+
+La capa de dades, és la capa responsable de comunicar-se amb la base de dades i que manté la persistencia del sistema. Guarda totes les dades que li arriven de la capa de negocio i serveix totes les dades que aquesta li pugui demanar.\\ \\
+Contimuant amb l'exemple anterior, una vegada les dades de la nova història arriven a la capa de dades, aquesta serà la responsable de fer la \textit{query} a la base de dades per inserir-hi les noves dades.
+
+\begin{figure}[h]
+\includegraphics[width=15cm]{images/image5}
+\centering
+\caption[]{Arquitectura 3 capes.}
+\centering
+\end{figure}
+
+\subsection{Tecnologia utilitzada}
+Per la implementació del software, hem utilitzat una sèrie de tecnologies, frameworks i llenguatges de programació. Aquestes tecnologies es llisten a continuació.
+
+\subsubsection{HTML5}
+
+HTML, o Hyper Text Markup Language, és el llenguatge bàsic que s'utilitza per estrocturar documents web. És un llenguatge d'etiquetes que permet definir diferents elements en una pàgina web. Aquests elements poden se botons, enllaços, imatges, text plà, o qualsevol tipus d'element que ens ajudi a crear una pàgina web.
+
+\subsubsection{CSS}
+
+CSS, o Cascading Style Sheets, és un llenguatge de fulls d'estil que permet desriure la presentació (tant estil com format) d'un document basat en llenguatge d'etiquetes.
+
+\subsubsection{Javascript}
+
+Javascript és un llenguatge basat en prototipus. Aquest llenguatge, juntament amb la llibreria jQuery, ens serveixen per manipular elements de la pàgina web, o l'estil d'aquests, de forma dinàmica.
+
+\subsubsection{Neo4j}
+
+Neo4j és una base de dades no relacional, la qual es caracteritza per no tenir un esquema definit. És una graph database, el qual implica que la base de dades estarà definida per nodes i relacions entra aquests.\\ \\
+En una aplicació com la que s'esta implementant ens és molt útil, ja que l'informació d'aquesta va fluctuant tota l'estona i les cerques sín més ràpides, ja que totes surten d'un node concret.
+
+\subsubsection{JSON}
+JSON, o Javascript Object Notation, és un llenguatge obert basat en text i orientat a l'intecanvi de dades. A més és facil d'entandre per qualsevol persona, inclús si aquesta no es troba en el món de la informàtica.\\ \\
+Per agafar l'informació de la base de dades, necessitem implementar una API o un connector amb Javascript, de forma que aquest ens permeti tenir un flux d'informació. Per fer-ho, totes les queries de consulta que es fan retornen el seu resultat en en format JSON.
+
+\subsubsection{Node.js}
+
+És un framework que et facilita totes les feines encarades a web. Els seus llenguatges bàsics són HTML, CSS i Javascript, tot i que pots afegir les funcionalitats que vulguis instal·lant els paquets necessaris al teu projecte.\\ \\
+Finalment, dir que aquest framework et dóna molta facilitat per implementar la comunicació client servidor.\\ \\
+Els paquets addicionals que s'han utilitzat en l'aplicació són els següents:
+
+\begin{itemize}
+\item \textbf{body-parser:} Aquest paquet ens permet llegir els camps que ha omplert el client directament des del servidor, sense la necessitat d'haver de fer una crida ajax per passar els paràmetres.
+\item \textbf{bootstrap:} És un framework per HTML, CSS i Javascript que permet fer les pàgines responsive amb facilitat.
+\item \textbf{dotenv:} ens permet carregar fitxers .env a l'aplicació.
+\item \textbf{jquery:} És una llibreria de Javascript que et permet escriure el mateix codi de forma més ràpida, i que permet la manipulació del codi HTML de forma senzilla.
+\item \textbf{jquery-validation:} És un pluguin de jQuery que serveix per validar els diferents formularis que hi puguin haver a l'aplicació (dates, correus electrònics, contrasenyes, etc).
+\item \textbf{neo4j-driver:} És un driver que permet configurar connexions amb Neo4j, ja explicat a l'apartat 3.3.
+uuid: Ens permet auto generar un identificador únic per a cada node de la base de dades.
+\item \textbf{pug:} Aquest paquet permet escriure el codi HTML més ràpidament i permet crear bucles d'informació dinàmica a la pàgina web.
+\item \textbf{font-awesome:} És una llibreria d'icones.
+\item \textbf{w3-css:} Permet fer dissenys més amistosos per l'usuari de l'aplicació amb facilitat.
+\item \textbf{crypto:} Aquest paquet ens permet encriptar les contrasenyes dels usuaris, en base64, utilitzant diferents algoritmes.
+\item \textbf{client-session:} Paquet que ens permetrà mantenir les sessions dels usuaris.
+\item \textbf{multer:} Paquet que permet al client penjar fotografies al servidor utilitzant funcions middleware.
+
+\end{itemize}
+
+\subsubsection{Webstorm}
+
+Webstorm és una IDE, creada per JetBrians, encarada al desenvolupament d'aplicacions web i que ens servirà per fer la implementació de la aplicació.\\ \\
+Els seus llenguatges principals són Javascript, HTML i CSS.
+
+\subsection{User Interface}
+
+\subsubsection{Fonts}
+
+L'aplicació estarà composta per dues fonts:
+\begin{itemize}
+\item \textbf{Montserrat:} És la font que s'utilitzarà en els títols.
+\item \textbf{Raleway:} S'utilitzarà per a la resta de text de l'aplicació.
+\end{itemize}
+He triat aquestes fonts a partir de les guis d'estil de google (\url{https://fonts.google.com/}). Montserrat és la font que ens servirà pels títols, i Raleway com a font sans-serif, que és la que es recomana per la major part del text de la pàgina.
+
+\subsubsection{Colors primaris de l'aplicació}
+
+L'aplicació està composta per la següent paleta de colors:
+
+\begin{figure}[h]
+\includegraphics[width=12cm]{images/image1}
+\centering
+\caption[]{Paleta de colors de l'aplicació.}
+\centering
+\end{figure}
+Per troba'ls, he utilitzat una eina que es diu \textbf{paletton}, la qual et permet combinar colors de forma senzilla. Per utilitzar-la podeu entrar a la següent URL:\\
+\url{http://paletton.com/\#uid=5300u0kqALsd8VjkyQ8B3GbBuoR} \\ \\
+Si us fixeu, en quasi totes les xares socials conegudes, s'utilitza el blau com a color principal de l'aplicació. Jo he decidit ficar el ver per trencar una mica els esquemes i que l'aplicació pugui ser facilment reconeguda.
+
+\subsubsection{Logotip}
+
+Per fer el logotip de l'aplicació, s'han utilitzat les mateixes fonts que s'han esmentat anteriorment.
+El resultat és el següent:
+
+\begin{figure}[H]
+\includegraphics[width=7cm]{images/image3}
+\centering
+\caption[]{Logotip de l'aplicació.}
+\centering
+\end{figure}
+
+El logotip, intenta representar una mà com a símbol representatiu de l'amistat. D'aquí el nom de MakeYourFriend.
+
+\subsection{Mapes navigacionals}
+
+A continuació, es mostren els dos mapes navigacionals, tant pels usuaris com pels administradors del sistema:
+
+\begin{figure}[H]
+\includegraphics[width=11cm]{images/image9}
+\centering
+\caption[]{Mapa navigacional de l'aplicació (Usuari).}
+\centering
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=15cm]{images/image10}
+\centering
+\caption[]{Mapa navigacional de l'aplicació (Gestor/Administrador).}
+\centering
+\end{figure}
+
+\subsection{Model de dades}
+
+Com hem dit anterirment, en la base de dades que s'utilitzan no hi ha un esquema definit. Tot hi aixó, s'han definit unes entitats i unes relacions entre aquestes per mantindre una constancia de la informació. Les entitats són les següents:
+
+\begin{figure}[h]
+\includegraphics[width=15cm]{images/image6}
+\centering
+\caption[]{Entitats de l'aplicació.}
+\centering
+\end{figure}
+
+\subsubsection{Usuari}
+
+L'usuari representa tant els usuaris del sistema com el seu gestor/administrador. Els camps que té aquesta entitat són els següents:
+\begin{itemize}
+	\item \textbf{uuid:} Representa l'identificador únic dins de la base de dades.
+	\item \textbf{name:} Conté el nom de l'usuari.
+	\item \textbf{surname:} Conté el cognom o congnoms de l'usuari.
+	\item \textbf{birthday:} Conté la data de naixament de l'usuari.
+	\item \textbf{gender:}  Conté el gènere de l'usuari. El gènere pot ser "Male" o "Female".
+	\item \textbf{about:} Conté la descripció de l'usuari. El que l'usuari vol que sàpiguin d'ell.
+	\item \textbf{email:} Conté el correu electònic de l'usuari.
+	\item \textbf{password:} Conté la contrasenya en base-64 de l'usuari.
+	\item \textbf{isadmin:} Camp que informa de si l'usuari és administrador/gestor.
+	\item \textbf{foto:} Conté la ruta on esta guardada la fotografia del seu perfil.
+	\item \textbf{code:} Conté el codi d'administrador. Els usuaris necessiten un codi per poder registrar-se al sistema, i aquest camp conté el codi, el qual es correspon amb el uuid de l'administrador.
+\end{itemize}
+
+\subsubsection{Història}
+
+Una història representa una publicació que l'usuari a fet dins del sistema. Aquesta publicació es guarda amb els següents camps:
+\begin{itemize}
+	\item \textbf{uuid:} Representa l'identificador únic dins de la base de dades.
+	\item \textbf{foto:} Conté la ruta de la fotografia que l'usuari ha afegit a l'història. En cas que l'història no tingui cap foto, el camp es defineix amb "nothing".
+	\item \textbf{description:} Conté la descripció de l'història.
+	\item \textbf{usuari:} Conté el nom i el cognom de l'usuari que he fet la publicació. 
+	\item \textbf{date:} conté la data en que s'ha creat l'història.
+\end{itemize}
+
+\subsubsection{Esdeveniment}
+Un esdeveniment és una entitat en que els usuaris poden indicar si i volen assistir o no. Aquest esdeveniment conté els següents camps:
+\begin{itemize}
+	\item \textbf{uuid:} Representa l'identificador únic dins de la base de dades.
+	\item \textbf{title:} Conté el títol de l'esdeveniment.
+	\item \textbf{description:} Conté la descripció de l'esdeveniment.
+	\item \textbf{start:} Conté el dia i l'hora d'inici de l'esdeveniment.
+	\item \textbf{end:} Conté el dia i l'hora de finalització de l'esdeveniment.
+	\item \textbf{place:} Conté el lloc on es durà a terme l'esdeveniment.
+	\item \textbf{usuari:} Conte el nom i el congom de l'usuari que ha creat l'esdeveniment.
+\end{itemize}
+Tot i tenir les entitats, no podem contenir totes les dades del sistema, ja que aquestes entitats només contenen informació d'una unitat única dins de l'aplicació. Per aixó, s'han definit diferents relacions entre les entitats del sistema. Per a que es puguin entendre les diferents relacions, s'utilitzarà el llenguatge Cypher, que és el llenguatge de queries que s'utilitza en la bases de dades neo4j. Les relacions es definiràn de la següent manera:
+\begin{itemize}
+	\item \textbf{(exemple):} Els parentesis indiquen que és un node, i exemple representaria el nom del node.
+	\item \textbf{-[exemple]->:} -[]-> representa una relació d'un node a un altre, i exemple seria el nom de la relació.
+\end{itemize}
+Les relacions que tenim dins del sistema són les següents:
+\begin{itemize}
+	\item \textbf{(Usuari A)-[MY\_FRIEND]->(Usuari B):} Aquesta relació representa que l'usuari A té amistat amb l'usuari B. Com que neo4j no permet una relació bidireccional, si en el sistema trobem una relació MY\_FRIEND d'un node a un altre, implica que existirà la mateixa relació en sentit contrari.
+	\item \textbf{(Usuari A)-[MY\_REQUEST]->(Usuari B):} Aquesta relació representa que l'usuari A ha solicitat tenir amistat amb l'usuari B. Si existeix aquesta relació, implica que l'usuari A no pot tenir una relació de MY\_FRIEND (explicada anteriorment) amb l'usuari B i a l'inversa.
+	\item \textbf{(Usuari A)-[MY\_POST]->(Post A):} Aquesta relació indica que el Post A (Història A) ha estat creada per l'usuari A.
+	\item \textbf{(Usuari A)-[LIKE]->(Post A):} Aquesta relació indica que a l'usuari A li agrada el Post A (Història A).
+	\item \textbf{(Usuari A)-[MY\_EVENT]->(Esdeveniment A):} Aquesta relació indica que l'esdeveniment A ha estat creat per l'usuari A.
+	\item \textbf{(Esdeveniment A)-[EVENT\_REQUEST]->(Usuari A):} Aquesta relació indica que l'usuari A esta convidat a l'esdeveniment A.
+	\item \textbf{(Usuari A)-[ASSIST\_EVENT]->(Esdeveniment A):} Aquesta relació indica que l'usuari A assistirà a l'esdeveniment A.
+\end{itemize}
+\newpage
+Per acabar aquesta secció, la imatge següent mostra un exemple (molt reduït) de la base de dades:
+
+\begin{figure}[H]
+\includegraphics[width=15cm]{images/image11}
+\centering
+\caption[]{Exemple reduït de la base de dades}
+\centering
+\end{figure}
+
+Els nodes de color rosa represente històries, els de color verd esdeveniments, i els de color blau els usuaris del sistema.
+
+
+\section{Implementació}
+
+\section{Proves}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 CONCLUSIONS                                 %
