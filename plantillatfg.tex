@@ -39,8 +39,43 @@
 \usepackage{float}
 \usepackage{lmodern,textcomp}
 \usepackage[utf8]{inputenc} 
+\usepackage{listings}
 \definecolor{forestgreen}{RGB}{34,139,34}
 \definecolor{costumyellow}{RGB}{255,185,1}
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=right,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        ALTRES PAQUETS I DEFINICIONS                         %
@@ -183,7 +218,7 @@ Per tant, sí que serà fàcil poder agafar idees de les xarxes socials existent
 Cada vegada és més la gent que pot fer ús d’internet, i això implica que cada vegada hi ha més gent que fa ús de les xarxes socials. Però no tothom té accés a aquestes o no es senten còmodes a l’hora d’utilitzar-les (actualment les xarxes socials no estan adaptades a la seva forma de pensar). A més, cal pensar en què la gent amb diversitat funcional de dèficit cognitiu que pot utilitzar aquestes xarxes, pot tindre problemes a l’hora de fer relacions socials, i això implica que han de buscar entre moltíssima gent per poder trobar algú amb qui es pugui tindre més confiança (per exemple, si algú té un problema similar al teu, sempre és molt més fàcil d’agafar-li confiança).
 
 \begin{figure}[h]
-\includegraphics[width=12cm]{images/image5}
+\includegraphics[width=15cm]{images/image5}
 \centering
 \caption[Figura 3.1]{Evolució de l’activitat diària i mensual dels usuaris de Facebook.}
 \centering
@@ -326,22 +361,22 @@ La memòria del projecte inclourà tota la documentació redactada en el mòdul 
 \subsubsection{Diagrama de Gantt}
 
 \begin{figure}[h]
-\includegraphics[width=12cm]{images/image2}
+\includegraphics[width=14cm]{images/image2}
 \centering
 \end{figure}
 
 \begin{figure}[h]
-\includegraphics[width=12cm]{images/image8}
+\includegraphics[width=14cm]{images/image8}
 \centering
 \end{figure}
 
 \begin{figure}[h]
-\includegraphics[width=12cm]{images/image4}
+\includegraphics[width=14cm]{images/image4}
 \centering
 \end{figure}
 
 \begin{figure}[h]
-\includegraphics[width=12cm]{images/image7}
+\includegraphics[width=14cm]{images/image7}
 \centering
 \caption[Figura 6.1]{Diagrama de Gantt}
 \centering
@@ -909,9 +944,51 @@ L'sprint s'ha dut a terme dins dels límits establerts i, com s'ha pogut veure e
 
 \subsection{Resum de l'sprint}
 
+Aquest sprint es correpon a l'últim sprint d'implementació de la aplicació. Dels 53 punts establerts, s'han complert tots.\\ \\
+Durant aquest sprint, es durant a terme varies tasques de millora del software i es finalitzaran alguna de les històries que no s'han pogut dur a terme en els sprints anteriors. Addicionalment, durant aquest sprint s'han resolt una serie de bugs que s'han trobat a l'hora de testejar el software.
+En els apartats següents veurem quines són les tasques que s'han dut a terme en aquest sprint i quin ha sigut el seu resultat. També es veuran quines han sigut les tecnologies que s'han incorporat al projecte.
+
 \subsection{Descripció i resultat de les històries d’usuari}
 
+\subsubsection{Com a gestor, vull poder invitar a usuaris a utilitzar la xarxa social (13 punts)}
+
+Aquesta història ha consistit en que el gestor/administrador de l'aplicació pugui invitar a nous usuaris a utilitzar la xarxa mitjançant una codi.\\ \\
+\textcolor{forestgreen}{\textbf{Resultat:}} La història s'ha completat amb èxit. Per fer-ho, s'agafa l'identificador de la base de dades del gestor (el qual ens servirà com a codi d'invitació). Aquest, informa als nous usuaris el codi i finalment, els usuaris afegeixen el codi en el nou camp que s'ha creat a la finestra de registre.
+
+\subsubsection{Com a gestor, vull poder veure informació dels usuaris que he convidat (20 punts)}
+
+Aquesta història ha consistit en poder visulaitzar de forma fàcil tots els usuaris que es trobaven dins de la xarxa social a partir del codi d'invitació.\\ \\
+\textcolor{forestgreen}{\textbf{Resultat:}} La història s'ha completat amb èxit. Utilitzant els codis que els usuaris introdueixen a l'hora de registrar-se, es pot saber facilment, quin administrador l'ha invitat.
+
+\subsubsection{Com a usuari vull poder penjar fotografies arrastrant-les directament al navegador (20 punts)}
+
+Aquesta història consistia en poder fer drag \& drop d'una imatges des d'una finestra de la pantalla fins al navegador directament.\\ \\
+\textcolor{forestgreen}{\textbf{Resultat:}} La història s'ha completat amb èxit. Tot i que ha portat molts problemes, finalment s'ha pogut solucionar.
+
+\subsection{Tecnologies utilitzades}
+
+\subsubsection{Paquets addicionals de Node.js}
+
+En aquest sprint s'han incorporat un nou paquet de Node.js. Aquest paquet s'anomena materialize-css, i ens ha servit per poder retocar l'interfície gràfica i fer-la una mica més amigable.
+
 \subsection{Conclusions de l'sprint}
+
+En aquest sprint no podem dir el mateix que els anteriors, ja que no s'ha pogut dur a terme dins dels límits establerts. Segons la planificació inicial, l'sprint s'hauria d'haver finalitzat el 8 de Juny, però fins el dia 16 no ha finalitzat.\\ \\
+Aquerst fet ha implicat que hi hagués un solapament entre les tasques "Millores" i "Documentació i defensa", definides en l'apartat 2.3.2 del document.
+\\ \\
+Tot hi que hi ha hagut un solapament de les tasques, s'han dut a terme de forma paral·lela, i per tant, la planificació s'ha tornat ha encarrilar al ritme que toca.
+
+\section{Conclusions de Seguiment}
+
+S'han dut a terme tots els sprints, tot i que, com s'ha comentat en la secció anterior, l'últim sprint no s'ha dut a terme dins del marges establerts.\\ \\
+Addicionalment, hi han hagut 4 històries del backlog que no s'han pogut dur a terme per falta de temps:
+\begin{itemize}
+	\item Com a usuari, vull poder comentar els esdeveniments. (10 punts)
+	\item Com a usuari, vull poder enviar missatges provats a altres usuaris. (13 punts)
+	\item Com a usuari, vull poder editar una història publicada per mi. (13 punts)
+	\item Com a usuari, vull poder comentar publicacions fetes per altres usuaris. (13 punts)
+\end{itemize}
+Tot i els inconvenients que hi han hagut, podem dir que el software final és un software usable i que conté totes les funcionalitats essencials establertes a l'inici del projecte.
 
 \chapter{Informació Tècnica}
 
@@ -941,7 +1018,7 @@ La capa de dades, és la capa responsable de comunicar-se amb la base de dades i
 Contimuant amb l'exemple anterior, una vegada les dades de la nova història arriven a la capa de dades, aquesta serà la responsable de fer la \textit{query} a la base de dades per inserir-hi les noves dades.
 
 \begin{figure}[h]
-\includegraphics[width=15cm]{images/image5}
+\includegraphics[width=15cm]{images/image12}
 \centering
 \caption[]{Arquitectura 3 capes.}
 \centering
@@ -991,6 +1068,9 @@ uuid: Ens permet auto generar un identificador únic per a cada node de la base 
 \item \textbf{crypto:} Aquest paquet ens permet encriptar les contrasenyes dels usuaris, en base64, utilitzant diferents algoritmes.
 \item \textbf{client-session:} Paquet que ens permetrà mantenir les sessions dels usuaris.
 \item \textbf{multer:} Paquet que permet al client penjar fotografies al servidor utilitzant funcions middleware.
+\item \textbf{moment:} Permet definir formats de dates.
+\item \textbf{fullcalendar:} Permet visualitzar diferents esdeveniments en un calendari a partir d'un JSON.
+\item \textbf{materialize-css:} Paquet que m'ha permés fer la interfície gráfica més amigable. Aquest paquet, conté una serie de classes css i funcions javascript que permeten tenir una millor interacció amb la UI de l'aplicació.
 
 \end{itemize}
 
@@ -1121,7 +1201,7 @@ Les relacions que tenim dins del sistema són les següents:
 	\item \textbf{(Esdeveniment A)-[EVENT\_REQUEST]->(Usuari A):} Aquesta relació indica que l'usuari A esta convidat a l'esdeveniment A.
 	\item \textbf{(Usuari A)-[ASSIST\_EVENT]->(Esdeveniment A):} Aquesta relació indica que l'usuari A assistirà a l'esdeveniment A.
 \end{itemize}
-\newpage
+
 Per acabar aquesta secció, la imatge següent mostra un exemple (molt reduït) de la base de dades:
 
 \begin{figure}[H]
@@ -1130,13 +1210,518 @@ Per acabar aquesta secció, la imatge següent mostra un exemple (molt reduït) 
 \caption[]{Exemple reduït de la base de dades}
 \centering
 \end{figure}
-
 Els nodes de color rosa represente històries, els de color verd esdeveniments, i els de color blau els usuaris del sistema.
 
-
 \section{Implementació}
+En aquest apartat, es donaràn exemples de codi de les funcions principals del sistema.
+
+\subsection{Sessions}
+Per implementar les sessions, s'ha utilitzat el paquet de Node.js anomenat client-session. Per fer que les sessions siguin estables, s'ha passat a través d'una cookie tota la informació correponent al node de l'usuari, i seguidament, per cada request de l'usuari al servidor, es valida si la cookie es valida. Per fer-ho s'ha procedit de la següent manera:
+\begin{enumerate}
+	\item En primer lloc s'importa la llibreria en una variable:
+		\begin{lstlisting}
+			const session = require('client-sessions');
+		\end{lstlisting}
+	\item Seguidament, configurem les cookies:
+\begin{lstlisting}
+app.use(session({
+  cookieName: 'session',
+  secret: 'randomWord',
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000,
+}));	
+\end{lstlisting}
+A la cookie, i afegim un nom i el temps de duració.
+\item Una vegada la cookie esta configurada, aquesta s'ha de passar al client en el moment que fa login:
+\begin{lstlisting}
+function setLogin(email, password, res, req, page, pageer) {
+  db.findUser(email).then((usr) => {
+    if (!usr[0]) {
+      res.render(pageer, { error: 'Invalid email or password.' });
+    } else {
+      const hash = crypto.createHash('sha256').update(password).digest('base64');
+      if (usr[0].password == hash) {
+        user = usr[0];
+        req.session.usr = usr;
+        res.redirect(page);
+      } else {
+        res.render(pageer, { error: 'Invalid email or password.' });
+      }
+    }
+  });
+}
+\end{lstlisting}
+Com podem veure, en primer lloc validem que l'usuari i la contrasenya siguin valids. Per fer-ho ens comuniquem amb la capa de dades (db en el codi), mirem si l'usuari existeix, i si és així, comprovem la seva contrasenya. En el cas que no sigui valid, redireccionem al login amb error, i en cas que sigui correcte el redireccionem a la pàgina principal i li passem la cookie amb tota la seva informació.
+\item Una vegada l'usuari té la cookie, per cada crida que fa al servidor s'executa la següent funció:
+\begin{lstlisting}
+function requireLogin(req, res, next) {
+  if (!req.session.usr) {
+    if (req.get('accept-language').includes('ca')) {
+      res.redirect('/login-ca');
+    } else if (req.get('accept-language').includes('es')) {
+      res.redirect('/login-es');  
+    } else res.redirect('/login-en');
+  } else {
+    next();
+  }
+}
+\end{lstlisting}
+En el cas que la cookie ja no sigui vàlida (tant per que la cookie ha caducat, com que s'ha tancat el navegador), es redirecciona a la pàgina d'inici de l'aplicació (el login). Altrament, navegarà a la pàgina que l'usuari hagi demanat.
+\end{enumerate}
+Tot el codi d'aquest apartat, es troba en el fitxer app.js.
+
+\subsection{Registre}
+En aquest apartat, es donarà com exemple com s'ha fet el registre d'un nou usuari. Per fer-ho, s'han fet servir uns quants fitxers, els quals s'aniràn anomenant pas a pas:
+\newpage
+\begin{enumerate}
+	\item Per poder registrar un usuari al sistema, s'ha d'omplir el següent formulari, corresponent al fitxer que es troba en la ruta /views/register/register-en:
+\begin{figure}[h]
+\includegraphics[width=15cm]{images/image13}
+\centering
+\caption[Figura 3.1]{Pàgina de registre.}
+\centering
+\end{figure}
+\item Una vega s'omple el formulari i es clica el botó register, s'executa el següent codi (que es troba en el mateix fitxer):
+\begin{lstlisting}
+$( "#submitbutton" ).click(function() {
+        var form = $("#registerform");
+        form.validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                pass1: {
+                    required: true,
+                    minlength: 8
+                },
+                pass2: {
+                    required: true,
+                    equalTo: "#pass1"
+                },
+                birthday:{
+                    isValidDate: true
+                }
+            }
+        });
+
+        if(form.valid()) {
+            $('#spinnerbackground').css('display', 'block');
+            $('#spinner').css('display', 'block');
+            $.ajax({
+                url: "/getUsers"
+            }).done(function (users) {
+                var exists = false;
+                var validCode = false;
+                for(i=0;i<users.length;++i){
+                    if(users[i].email == document.getElementsByName("email")[0].value){
+                        exists = true;
+                        i=users.length;
+                    }
+                    if(users[i].uuid.toLowerCase() == document.getElementsByName("code")[0].value.toLowerCase() && users[i].isadmin=="YES"){
+                        validCode = true;
+                    }
+                }
+                if (exists) {
+                    $('#spinnerbackground').css('display', 'none');
+                    $('#spinner').css('display', 'none');
+                    $('#infobackground').css('display', 'block');
+                    $('#errorcard').css('display', 'block');
+                }
+                else {
+                    if(validCode == false){
+                        $('#spinnerbackground').css('display','none');
+                        $('#spinner').css('display', 'none');
+                        $('#infobackground').css('display', 'block');
+                        $('#errorcardcode').css('display', 'block');
+                    }
+                    else form.submit();
+                }
+            }).fail(function () {
+                $('#spinnerbackground').css('display', 'none');
+                $('#spinner').css('display', 'none');
+            });
+        }
+    });
+\end{lstlisting}
+Com podem veure, en primer lloc, es valida que el formulari s'hagi omplert correctament. Seguidament s'executa una query per agafar tots els usuaris del sistema. Aquesta query, anirà al fitxer app.js (capa de negoci) i seguidament al fitxer neo4j-api.js (capa de dades), Agafarà els usuaris del sistema i els mostrarà al client. A partir d'aquí, es validarà que el codi de validació introduit per l'usuari sigui vàlid i que l'usuari no existeixi al sistema.
+\item Si el codi de validació no és vàlid, l'usuari haurà de tornar d'omplir el camp de codi d'usuari. Altrament, es farà submit del formulari i s'executarà la petició post de /registe-en, en l'arxiu app.js (el qual conté totes les rutes de l'aplicació.):
+\begin{lstlisting}
+app.post('/register-en', (req, res) => {
+  const name = req.body.name;
+  const surname = req.body.surname;
+  const gender = req.body.gender;
+  const code = req.body.code;
+
+    // FORMAT TO STANDAR DATE
+  const auxDate = req.body.birthday;
+  const parts = auxDate.split('/');
+  const birthday = `${parts[1]}/${parts[0]}/${parts[2]}`;
+
+  const email = req.body.email.toLowerCase();
+  const about = req.body.about;
+  const password = req.body.pass1.toLowerCase();
+
+  db.createUser(name, surname, gender, birthday, email, about, password, code)
+        .then(() => res.redirect('/login-en?fromreg=YES'))
+        .catch(error => res.status(500).send(error));
+});
+\end{lstlisting}
+\item Com es pot veure agafem tots els parametres del formulari, es fan les transformacions pertinents i finalment, executem la funció db.createUser, la qual es troba en el fitxer neo4j-api.js:
+\begin{lstlisting}
+  createUser(name,surname,gender,birthday,email,about,password,code){
+    var isadmin = "NO";
+
+    const session = this.driver.session();
+
+    const hash = crypto.createHash('sha256').update(password).digest('base64');
+
+    const resp = session
+        .run(`
+          CREATE (n:USER {
+            name: {name},
+            surname: {surname},
+            gender: {gender},
+            birthday: {birthday},
+            email: {email},
+            about: {about},
+            code: {code},
+            password: {hash},
+            uuid: {uuid},
+            isAdmin: {isadmin}
+          })
+          RETURN n.name`, {
+          name,
+          surname,
+          gender,
+          birthday,
+          email,
+          about,
+          code,
+          hash,
+          uuid: uuid(),
+          isadmin
+        });
+
+    resp.then(() => session.close())
+        .catch(() => session.close());
+
+    return resp;
+  }
+\end{lstlisting}
+Aquesta funció encripta la contrasenya en un hash en base64, i seguidament, executa una query a la base de dades (vindria a ser session.run()). Una vegada s'ha executat la query, es retorna el resultat, i com s'ha vist al metode post del fitxer app.js, en cas que la query hagi fallat, et retorna l'error 500. En el cas que l'usuari s'hagi creat correctament, et redireccionarà a la pantalla de login.
+\end{enumerate}
+
+\subsection{New Story}
+Aquesta funcionalitat, dona l'oportunitat de poder penjar una història a l'usuari en qüestió. Per poder implementar-ho, s'ha seguit els següents passos:
+\newpage
+\begin{enumerate}
+\item En primer lloc, s'ha creat un formulari el qual l'usuari ha d'omplir:
+\begin{figure}[h]
+\includegraphics[width=15cm]{images/image14}
+\centering
+\caption[Figura 3.1]{Pàgina de New Story.}
+\centering
+\end{figure}
+Com podem veure, podem penjar una imatge i podem ficar una descripció. Per poder penjar la imatge (fent ús del drag \& drop), s'ha procedit de la següent forma:
+\begin{enumerate}
+\item S'ha definit un formulari amb la classe dropzone i amb identificador \#imageform en el fitxer /views/new-post/new-post-en:
+\begin{lstlisting}
+form#imageform.dropzone.w3-container(action="/post-image", method="post", enctype="multipart/form-data")
+   label.w3-text(style="margin-top:-45px;margin-left:-40px !important;")
+       b(style='text-decoration:underline;') IMAGE
+\end{lstlisting}
+\item Una vegada s'ha definit el formulari, es defineix el dropzone en el mateix fitxer:
+\begin{lstlisting}
+Dropzone.options.imageform = {
+
+        // Prevents Dropzone from uploading dropped files immediately
+        autoProcessQueue: false,
+        maxFiles: 1,
+        addRemoveLinks: true,
+        init: function () {
+            var submitButton = document.querySelector("#submitbutton")
+            myDropzone = this; // closure
+
+            submitButton.addEventListener("click", function () {
+                var form = $("#registerform");
+                if(form.valid()) {
+                    $('#spinnerbackground').css('display', 'block');
+                    $('#spinner').css('display', 'block');
+                    myDropzone.processQueue();
+                    if (myDropzone.getUploadingFiles().length === 0 && myDropzone.getQueuedFiles().length === 0) {
+                        var description = $("#description").val();
+                        console.log(description);
+                        $.ajax({
+                            method: "POST",
+                            url: "/post-story/" + description,
+                            success: function () {
+                                var form = $("#registerform");
+                                form.submit();
+                            }
+                        });
+                    }
+                }
+            });
+
+            myDropzone.on("complete", function(file) {
+                if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
+                    var description = $("#description").val();
+                    console.log(description);
+                    $.ajax({
+                        method: "POST",
+                        url: "/post-story/" + description,
+                        success: function () {
+                            var form = $("#registerform");
+                            form.submit();
+                        }
+                    });
+                }
+            });
+        }
+    };
+\end{lstlisting}
+En aquesta definició, es pot veure que una vegada es cliqui el submit button, es pujarà la imatge al servidor (només en el cas que aquesta existeixi).
+\item Quan l'imatge es puja al servidor, s'utilitza la següent ruta:
+\begin{lstlisting}
+app.post('/post-image', uploadPost.single('file'), (req, res) => {
+    res.send('OK');
+});
+\end{lstlisting}
+La qual executa la funció uploadPost.single('file') definida de la següent forma:
+\begin{lstlisting}
+const storagePost = multer.diskStorage({
+  destination: './uploadsPost/',
+  filename(req, file, cb) {
+    crypto.pseudoRandomBytes(16, (err, raw) => {
+      if (err) return cb(err);
+      lastUpload = `./uploadsPost/${raw.toString('hex')}${path.extname(file.originalname)}`;
+      fileUploaded = true;
+      cb(null, raw.toString('hex') + path.extname(file.originalname));
+    });
+  }
+});
+
+var maxSize = 1 * 1000 * 1000*1000*1000;
+
+const uploadPost = multer({
+    storage: storagePost,
+    limits: { fileSize: maxSize },
+});
+\end{lstlisting}
+Una vegada s'ha pujat la imatge al servidor, es segueix amb la l'execució del codi per publicar l'história.
+\end{enumerate}
+\item Com hem dit anteriorment, una vegada la imatge s'ha pujat al servidor (en el cas que aquesta existeixi), es fa una nova crida al servidor:
+\begin{lstlisting}
+app.post('/post-story/:description', requireLogin, (req, res) => {
+      const description = req.params.description;
+      const date = new Date();
+      const dateInMilliseconds = date.getTime();
+      const usuari = `${req.session.usr[0].name} ${req.session.usr[0].surname}`;
+      console.log("ehehehehehhehehe");
+      if(fileUploaded===true){
+          console.log("1");
+          db.newPost(req.session.usr[0].email, description, lastUpload, dateInMilliseconds, usuari).then(() => {
+              console.log("POST");
+              db.relationToNewPost(req.session.usr[0].email, dateInMilliseconds);
+          });
+          console.log("LOG");
+      }
+      else{
+          console.log("2");
+          db.newPost(req.session.usr[0].email, description, 'nothing', dateInMilliseconds, usuari).then(() => {
+              console.log("POST");
+              db.relationToNewPost(req.session.usr[0].email, dateInMilliseconds);
+          });
+          console.log("LOG");
+      }
+      fileUploaded=false;
+      res.send('OK');
+});
+\end{lstlisting}
+En aquesta crida es distingeix si anteriorment s'ha pujat una imatge al servidor. Si és així, aquesta es passa com a parametre a la funció newPost de la capa de dades. Altrament, aquest parametre es passa com a 'nothing'. Finalment, es fa una nova crida a la capa de dades (relationToNewPost), la qual permet crear una relació MY\_POST, entre l'usuari i la nova història. Les dos operacions són les següents:
+\begin{itemize}
+\item \textbf{newPost():}
+\begin{lstlisting}
+  newPost(email,description,foto, date, usuari){
+      const session = this.driver.session();
+
+      const resp = session
+          .run(`CREATE (n:POST {
+            description: {description},
+            foto: {foto},
+            date: {date},
+            usuari: {usuari},
+            uuid: {uuid}
+            }) RETURN n.uuid`, {
+              description,
+              foto,
+              date,
+              usuari,
+              uuid: uuid(),
+          });
+
+      resp.then(() => session.close())
+          .catch(()=> session.close());
+
+      return resp;
+  }
+\end{lstlisting}
+\item \textbf{relationToNewPost():}
+\begin{lstlisting}
+relationToNewPost(email,date){
+      const session = this.driver.session();
+
+      var time = new Date().getTime();
+      var query = "MATCH (u:USER), (r:POST) WHERE u.email = '"+email+"' AND r.date = "+date+" CREATE (u)-[t:MY_POST {date:'"+time+"'}]->(r) RETURN t";
+
+      const resp = session.run(query);
+
+      resp.then(()=> session.close())
+          .catch(()=> session.close());
+
+      return resp;
+  }
+\end{lstlisting}
+\end{itemize}
+\item Per acabar, es fa una última crida al servidor, la qual redireccionarà al client a la pàgina d'inici.
+\begin{lstlisting}
+app.post('/redirect-after-post', requireLogin, (req, res) => {
+    res.redirect('/main-page-en');
+});
+\end{lstlisting}
+\end{enumerate}
+
+\subsection{Other User Profile}
+Aquesta funcionalitat permet poder veure el perfil d'un altre usuari. A diferencia de les funcinalitats anteriors, aquesta funcionalitat es correspon a un get del fitxer app.js.\\ \\
+Per fer-ho s'ha procedit de la següent forma:
+\begin{enumerate}
+\item En primer lloc, l'usuari fa la següent creda get al servidor:
+\begin{lstlisting}
+app.get('/profile-out-en/:targetEmail', requireLogin, (req, res) => {
+  const email = req.params.targetEmail;
+  if (email == req.session.usr[0].email) res.redirect('/profile-en');
+  else {
+    db.findUser(email).then((result) => {
+      const usuari = result[0];
+      db.getFriends(email).then((result2) => {
+        const friends = result2;
+        db.getMyStories(email,req.session.usr[0].email).then((result3) => {
+          const posts = result3;
+          db.getIfFriend(email,req.session.usr[0].email).then((result4) => {
+              var isFriend = false;
+              if(result4[0]!=null) isFriend=true;
+              res.render('./profile-out/profile-out-en.pug', { usuari, friends, posts,isFriend});
+          });
+        });
+      });
+    });
+  }
+});
+\end{lstlisting}
+En primer lloc, comprovem que el perfil que volem veure no sigui el nostre. En cas que el perfil sigui el nostre, s'enrutarà a l'usuari al app.get("profile-en"), que es correspon a la ruta de del nostre perfil. Seguidament fem les següents crides a la capa de dades:
+\begin{itemize}
+\item \textbf{findUser():}
+\begin{lstlisting}
+findUser(email){
+      const session = this.driver.session();
+
+      const promise = new Promise((resolve, reject) => {
+          session
+              .run(`MATCH (s:USER) WHERE s.email = "` + email + `" RETURN s`)
+              .then((result) => {
+                  session.close();
+                  resolve(result.records
+                      .map(record => record._fields[0].properties));
+              })
+              .catch((error) => {
+                  session.close();
+                  reject(error);
+              });
+    });
+
+    return promise;
+  }
+\end{lstlisting}
+\item \textbf{getFriends():}
+\begin{lstlisting}
+    getFriends(myemail){
+        const session = this.driver.session();
+
+        var query = "MATCH (n:USER {email: '"+myemail+"'})-[:MY_FRIEND]->(p:USER) RETURN p";
+
+        const promise = new Promise((resolve,reject) => {
+            session.run(query)
+                .then((result) => {
+                    session.close();
+                    resolve(result.records
+                        .map(record => record._fields[0].properties));
+                })
+                .catch((error) => {
+                    session.close();
+                    reject(error);
+                });
+        });
+
+        return promise;
+    }
+\end{lstlisting}
+\item \textbf{getMyStories():}
+\begin{lstlisting}
+  getMyStories(email,myemail){
+      const session = this.driver.session();
+
+      var query = `MATCH (n:USER {email: "`+email+`"})-[:MY_POST]->(p:POST), (r:USER {email: "`+myemail+`"})
+              SET p.likes = SIZE(()-[:LIKE]->(p))
+              SET p.liked = SIZE((r)-[:LIKE]->(p))
+              RETURN p`;
+
+      const promise = new Promise((resolve, reject) => {
+          session
+              .run(query)
+              .then((result) => {
+                  session.close();
+                  resolve(result.records
+                      .map(record => record._fields[0].properties));
+              })
+              .catch((error) => {
+                  session.close();
+                  reject(error);
+              });
+      });
+      return promise;
+  }
+\end{lstlisting}
+\item \textbf{getIfFriend():}
+\begin{lstlisting}
+  getIfFriend(target,myemail){
+      const session = this.driver.session();
+
+      var query = "MATCH (n:USER {email: '"+myemail+"'})-[r:MY_FRIEND]->(p:USER {email:'"+target+"'}) RETURN r";
+
+      const promise = new Promise((resolve,reject) => {
+          session.run(query)
+              .then((result) => {
+                  session.close();
+                  resolve(result.records
+                      .map(record => record._fields[0].properties));
+              })
+              .catch((error) => {
+                  session.close();
+                  reject(error);
+              });
+      });
+
+      return promise;
+  }
+\end{lstlisting}
+\end{itemize}
+\item Una vegada que s'ha agafat la informació necessaria de la capa de dades, es renderitza la pàgina web que el client vol veure passant-li tota aquets informació.
+\end{enumerate}
 
 \section{Proves}
+Les proves que s'han dut a terme per validar el software, són UT (Unit Test). Els Unit Test, són un tipus de proves que consisteixen en realitzar proves els components més petits de la nostra aplicació, ho sigui, es testeja cada una de les funcionalitats del sistema de forma indivudial.\\ \\
+Addicinalment, per garantir més rigidesa de l'aplicació, el testeig ha estat realitzat, en part, per companys que també es trabaven fent el TFG.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 CONCLUSIONS                                 %
@@ -1217,17 +1802,6 @@ Els nodes de color rosa represente històries, els de color verd esdeveniments, 
 
 \end{thebibliography}
 \cleardoublepage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                           APÈNDIXS  (Si n'hi ha!)                           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\APPENDIX
-
-\chapter{??? ???????????? ????}
-
-????? ????????????? ????????????? ????????????? ????????????? ????????????? 
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
