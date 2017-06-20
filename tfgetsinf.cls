@@ -105,7 +105,7 @@
 \newcommand{\appendicesname}{Ap\`endixs}
 
 \addto\captionscatalan{%
-     \renewcommand{\titulacioname}{Grau en Enginyeria Inform\`atica}
+     \renewcommand{\titulacioname}{Enginyeria de Serveis i Sistemes d'Informació}
      \renewcommand{\tfgname}{Treball fi de grau}
      \renewcommand{\authorname}{Autor}
      \renewcommand{\tutorname}{Tutor}
@@ -331,9 +331,9 @@
 \vspace*{2cm}
 \begin{color}{grisfosc}
 \large
-%Escola T\`ecnica Superior d'Enginyeria Inform\`atica
+FACULTAT D'INFORMÀTICA DE BARCELONA (FIB) 
 
-%Universitat Polit\`ecnica de Val\`encia
+UNIVERSITAT POLITÈCNICA DE CATALUNYA (UPC) - BarcelonaTech 
 \end{color}
 \vspace{\stretch{1}}
 
