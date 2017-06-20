@@ -280,7 +280,7 @@
         \begingroup
           \selectlanguage{#1}\addvspace{\baselineskip}\par\hfill
           {\sffamily\bfseries\Huge\abstractname}\smallskip\par}{%
-          \par\nopagebreak\noindent\textbf{\keywordsname:} \keywords\vspace*{3pt}\hrule
+          \par\nopagebreak\noindent\hrule
           \iflanguage{english}{\endgroup\makeindexes}{\endgroup\par\vspace{\stretch{1}}}}
 
 
