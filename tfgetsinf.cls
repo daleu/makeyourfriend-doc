@@ -109,7 +109,7 @@
      \renewcommand{\tfgname}{Treball fi de grau}
      \renewcommand{\authorname}{Autor}
      \renewcommand{\tutorname}{Tutor}
-     \renewcommand{\coursename}{Curs}
+     \renewcommand{\coursename}{}
      \renewcommand{\keywordsname}{Paraules clau}
      \renewcommand{\algorithmname}{Algorisme}
      \renewcommand{\listalgorithmname}{\'Index d'algorismes}

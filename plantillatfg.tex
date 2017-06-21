@@ -95,7 +95,7 @@
 \title{Implementació de xarxa social per a persones amb diversitat funcional}
 \author{David Aleu Moseguí}
 \tutor{Xavier Burgués Illa}
-\curs{2016-2017}
+\curs{28-06-2017}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                     PARAULES CLAU/PALABRAS CLAVE/KEY WORDS                  %
@@ -141,10 +141,14 @@ Aquí l'objectiu d'aquest treball de final de grau, crear un \textit{software} q
 El treball consistirà a desenvolupar una xarxa social adaptada per a persones amb diversitat funcional de dèficit cognitiu, amb l'addició d'una eina de gestió per als professionals de l'àmbit, amb la qual podran gestionar esdeveniments de diferents organitzacions.
 \end{abstract}
 \begin{abstract}[spanish]
----
+\noindent La tecnología ha ido evolucionando des de hace unos años. Dados los hechos, todavía hay sectores en los que no se les muestra suficiente interés. Uno de estos sectores es el de las aplicaciones para personas con diversidad funcional de déficit cognitivo.\\ \\
+Aquí el objetivo de este trabajo de fin de grado, crear un \textit{software} que no los haga sentir un público distinto, una red social adaptada para personas que presenten este problema.\\ \\
+El trabajo consistirá en desarrollar una red social adaptada para personas con diversidad funcional de déficit cognitivo, con la adición de una herramienta para los profesionales en el ámbito, con la que podrán gestionar eventos de distintas organizaciones.
 \end{abstract}
 \begin{abstract}[english]
----
+\noindent Technology has evolved from a few years ago. Despite this, there are still sectors where they are not shown sufficient interest. One of these sectors is the one of the applications for people with functional diversity of cognitive deficit. \\ \\
+Here is the purpose of this end-of-grade paper, to create a \textit{software} that does not make them feel different, a social network adapted for people who present this problem. \\ \\
+The work will consist of developing a social network adapted for people with functional diversity of cognitive deficit, with the addition of a tool for professionals in the field, with which they can manage events of different organizations.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -425,7 +429,7 @@ Els costos directes per activitat en aquest projecte inclouen els recursos human
 	\item Implementació i proves (Programador): 35€/h.
 \end{itemize}
 
-A continuació trobem una taula amb el cost de mercat i el cost estimat d’aquest projecte:
+\noindent A continuació trobem una taula amb el cost de mercat i el cost estimat d’aquest projecte:
 
 \begin{table}[H]
 \centering
@@ -587,7 +591,7 @@ Aquesta història ha consistit a buscar els colors o fonts (tipus de lletra) per
 \centering
 \end{figure}
 
-Per troba'ls, he utilitzat una eina que es diu \textbf{paletton}, la qual et permet combinar colors de forma senzilla. Per utilitzar-la podeu entrar a la següent URL: \\ \\
+\noindent Per troba'ls, he utilitzat una eina que es diu \textbf{paletton}, la qual et permet combinar colors de forma senzilla. Per utilitzar-la podeu entrar a la següent URL: \\ \\
 \url{http://paletton.com/\#uid=5300u0kqALsd8VjkyQ8B3GbBuoR} \\ \\
 L'aplicació estarà composta per dues fonts:
 \begin{itemize}
@@ -765,7 +769,7 @@ La història ha consistit en crear un mapa navigacional de les pantalles que pot
 \caption[Figura 3.4]{Mapa navigacional de l'aplicació (Només usuari).}
 \centering
 \end{figure}
-Com bé podem veure, en aquest mapa navigacional, es pot observar quines seran les diferents pantalles del sistema i com arribar a cada una d'elles. Remarcar, que aquestes pantalles només representen les pantalles accessibles pels usuaris, ja que un administrador tindrà la funcionalitat de poder crear esdeveniments.
+\noindent Com bé podem veure, en aquest mapa navigacional, es pot observar quines seran les diferents pantalles del sistema i com arribar a cada una d'elles. Remarcar, que aquestes pantalles només representen les pantalles accessibles pels usuaris, ja que un administrador tindrà la funcionalitat de poder crear esdeveniments.
 
 \subsubsection{Com a usuari, vull poder publicar una història al meu mur (20 punts)}
 
@@ -1013,7 +1017,9 @@ Tot i els inconvenients que hi ha hagut, podem dir que el \textit{software} fina
 
 \section{Introducció}
 
-En aquest capítol, explicaré com s'ha dissenyat el \textit{software}, com s'ha implementat i quines proves s'han fet per validar el \textit{software}. D'aquesta forma, que en el moment que algú vulgui continuar amb el desenvolupament del \textit{software}, no tingui cap problema.
+En aquest capítol, explicaré com s'ha dissenyat el \textit{software}, com s'ha implementat i quines proves s'han fet per validar el \textit{software}. D'aquesta forma, que en el moment que algú vulgui continuar amb el desenvolupament del \textit{software}, no tingui cap problema.\\ \\
+La versió més actualitzada del códi es troba en el següent repositori de GitHub:\\
+\url{https://github.com/daleu/makeyourfriend}
 
 \section{Disseny}
 \subsection{Arquitectura}
@@ -1024,17 +1030,20 @@ Seguidament, descriurem els objectius de cada una de les capes de forma breu.
 
 Aquesta capa és la responsable de la interacció amb l'usuari. \\ \\
 Per exemple, anem a suposar que un usuari vol crear una nova història. Aquest introduirà la descripció de la història, i opcionalement, una fotografia. Seguidament clicarà el botó de publicar història. Les dades que ha introduït l'usuari s'enviaran a la capa de negoci.\\ \\
-La capa de presentació, no serveix només perquè l'usuari pugui introduir dades. En aquesta capa també es mostren les dades que conté l'aplicació a l'usuari, de forma que aquestes es puguin entendre amb facilitat.
+La capa de presentació, no serveix només perquè l'usuari pugui introduir dades. En aquesta capa també es mostren les dades que conté l'aplicació a l'usuari, de forma que aquestes es puguin entendre amb facilitat.\\ \\
+Els fitxers del projecte que formen aquesta capa, són tots els fitxers que conten la carpeta /views (on es troben totes les pantalles de l'aplicació) i la carpeta /public (on es defineixen estils i funcions comunes de les vistes). Part de la capa de presentació, es troba en la carpeta /node\_modules.
 
 \subsubsection{Capa de Negoci}
 
 La capa de negoci, és la capa que conté tota la lògica del sistema: transformació de dades, manteniment de les sessions d'usuari, transferència de dades entre la capa de dades i la capa de presentació, execució d'algoritmes del sistema, etc. \\ \\
-Seguint l'exemple anterior, una vegada les dades de la nova història arriben a la capa de negoci, aquestes es transformen de forma que siguin acceptables per a la capa de dades. Addicionalment, s'agafa el moment en què s'ha produït la nova història, i l'usuari que l'ha fet. Una vegada s'han fet totes les transformacions pertinents, s'envia a la capa de dades.
+Seguint l'exemple anterior, una vegada les dades de la nova història arriben a la capa de negoci, aquestes es transformen de forma que siguin acceptables per a la capa de dades. Addicionalment, s'agafa el moment en què s'ha produït la nova història, i l'usuari que l'ha fet. Una vegada s'han fet totes les transformacions pertinents, s'envia a la capa de dades.\\ \\
+L'únic fitxer del projecte que forma aquesta capa és el fitxer app.js. En aquest fitxer, es troben totes les rutes de la capa de presentació i totes les interaccions amb la capa de dades. A part, també es defineix totes les variables que permeten configurar l'entorn.
 
 \subsubsection{Capa de Dades}
 
 La capa de dades, és la capa responsable de comunicar-se amb la base de dades i que manté la persistència del sistema. Guarda totes les dades que li arriben de la capa de negoci i serveix totes les dades que aquesta li pugui demanar.\\ \\
-Continuant amb l'exemple anterior, una vegada les dades de la nova història arriben a la capa de dades, aquesta serà la responsable de fer la \textit{query} a la base de dades per inserir-hi les noves dades.
+Continuant amb l'exemple anterior, una vegada les dades de la nova història arriben a la capa de dades, aquesta serà la responsable de fer la \textit{query} a la base de dades per inserir-hi les noves dades.\\ \\
+L'unic fitxer que forma la capa de dades, és el fitxer neo4j-api.js i és el responsable d'interactuar amb la base de dades.
 
 \begin{figure}[h]
 \includegraphics[width=15cm]{images/image12}
@@ -1042,7 +1051,7 @@ Continuant amb l'exemple anterior, una vegada les dades de la nova història arr
 \caption[Figura 4.1]{Arquitectura 3 capes.}
 \centering
 \end{figure}
-
+\newpage
 \subsection{Tecnologia utilitzada}
 Per la implementació del \textit{software}, hem utilitzat una sèrie de tecnologies, \textit{frameworks} i llenguatges de programació. Aquestes tecnologies es llisten a continuació.
 
@@ -1108,7 +1117,7 @@ L'aplicació estarà composta per dues fonts:
 \item \textbf{Raleway:} S'utilitzarà per a la resta de text de l'aplicació.
 \end{itemize}
 He triat aquestes fonts a partir de les guies d'estil de google (\url{https://fonts.google.com/}). Montserrat és la font que ens servirà per als títols, i Raleway com a font sans-serif, que és la que es recomana per la major part del text de la pàgina.
-\newpage
+
 \subsubsection{Colors primaris de l'aplicació}
 
 L'aplicació està composta per la següent paleta de colors:
@@ -1119,7 +1128,7 @@ L'aplicació està composta per la següent paleta de colors:
 \caption[Figura 4.2]{Paleta de colors de l'aplicació.}
 \centering
 \end{figure}
-Per troba'ls, he utilitzat una eina que es diu \textbf{paletton}, la qual et permet combinar colors de forma senzilla. Per utilitzar-la podeu entrar a la següent URL:\\
+\noindent Per troba'ls, he utilitzat una eina que es diu \textbf{paletton}, la qual et permet combinar colors de forma senzilla. Per utilitzar-la podeu entrar a la següent URL:\\
 \url{http://paletton.com/\#uid=5300u0kqALsd8VjkyQ8B3GbBuoR} \\ \\
 Si us fixeu, en quasi totes les xares socials conegudes, s'utilitza el blau com a color principal de l'aplicació. Jo he decidit ficar el ver per trencar una mica els esquemes i que l'aplicació pugui ser fàcilment reconeguda.
 
@@ -1128,25 +1137,26 @@ Si us fixeu, en quasi totes les xares socials conegudes, s'utilitza el blau com 
 Per fer el logotip de l'aplicació, s'han utilitzat les mateixes fonts que s'han esmentat anteriorment.
 El resultat és el següent:
 
-\begin{figure}[H]
+\begin{figure}[h]
 \includegraphics[width=7cm]{images/image3}
 \centering
 \caption[Figura 4.3]{Logotip de l'aplicació.}
 \centering
 \end{figure}
 
-El logotip, intenta representar una mà com a símbol representatiu de l'amistat. D'aquí el nom de MakeYourFriend.
+\noindent El logotip, intenta representar una mà com a símbol representatiu de l'amistat. D'aquí el nom de MakeYourFriend.
+
 \subsection{Mapes navigacionals}
 
 A continuació, es mostren els dos mapes navigacionals, tant pels usuaris com pels administradors del sistema:
 
-\begin{figure}[H]
+\begin{figure}[h]
 \includegraphics[width=11cm]{images/image9}
 \centering
 \caption[Figura 4.4]{Mapa navigacional de l'aplicació (Usuari).}
 \centering
 \end{figure}
-
+\newpage
 \begin{figure}[H]
 \includegraphics[width=15cm]{images/image10}
 \centering
@@ -1164,7 +1174,7 @@ Com hem dit anteriorment, en la base de dades que s'utilitza no hi ha un esquema
 \caption[Figura 4.6]{Entitats de l'aplicació.}
 \centering
 \end{figure}
-
+\newpage
 \subsubsection{Usuari}
 
 L'usuari representa tant els usuaris del sistema com el seu gestor/administrador. Els camps que té aquesta entitat són els següents:
@@ -1219,8 +1229,8 @@ Les relacions que tenim dins del sistema són les següents:
 \item \textbf{(Esdeveniment A)-[EVENT\_REQUEST]->;(Usuari A):} Aquesta relació indica que l'usuari A està convidat a l'esdeveniment A.
 \item \textbf{(Usuari A)-[ASSIST\_EVENT]->;(Esdeveniment A):} Aquesta relació indica que l'usuari A assistirà a l'esdeveniment A.
 \end{itemize}
-
-Per acabar aquesta secció, la imatge següent mostra un exemple (molt reduït) de la base de dades:
+\newpage
+\noindent Per acabar aquesta secció, la imatge següent mostra un exemple (molt reduït) de la base de dades:
 
 \begin{figure}[H]
 \includegraphics[width=15cm]{images/image11}
@@ -1228,7 +1238,7 @@ Per acabar aquesta secció, la imatge següent mostra un exemple (molt reduït) 
 \caption[Figura 4.7]{Exemple reduït de la base de dades}
 \centering
 \end{figure}
-Els nodes de color rosa representen històries, els de color verd esdeveniments, i els de color blau els usuaris del sistema.
+\noindent Els nodes de color rosa representen històries, els de color verd esdeveniments, i els de color blau els usuaris del sistema.
 
 \section{Implementació}
 En aquest apartat, es donaran exemples de codi de les funcions principals del sistema.
@@ -1250,6 +1260,7 @@ app.use(session({
 }));	
 \end{lstlisting}
 A la \textit{cookie}, i afegim un nom i el temps de duració.
+\newpage
 \item Una vegada la \textit{cookie} està configurada, aquesta s'ha de passar al client en el moment que fa login:
 \begin{lstlisting}
 function setLogin(email, password, res, req, page, pageer) {
@@ -1287,10 +1298,10 @@ function requireLogin(req, res, next) {
 En el cas que la \textit{cookie} ja no sigui vàlida (tant per què la \textit{cookie} ha caducat, com que s'ha tancat el navegador), es redirecciona a la pàgina d'inici de l'aplicació (el login). Altrament, navegarà a la pàgina que l'usuari hagi demanat.
 \end{enumerate}
 Tot el codi d'aquest apartat, es troba en el fitxer app.js.
-
+\newpage
 \subsection{Registre}
 En aquest apartat, es donarà com a exemple com s'ha fet el registre d'un nou usuari. Per fer-ho, s'han fet servir uns quants fitxers, els quals s'aniran anomenant pas a pas:
-\newpage
+
 \begin{enumerate}
 	\item Per poder registrar un usuari al sistema, s'ha d'omplir el següent formulari, corresponent al fitxer que es troba en la ruta /views/register/register-en:
 \begin{figure}[h]
@@ -1429,13 +1440,13 @@ app.post('/register-en', (req, res) => {
 \end{lstlisting}
 Aquesta funció encripta la contrasenya en un hash en base64, i seguidament, executa una \textit{query} a la base de dades (vindria a ser session.run()). Una vegada s'ha executat la \textit{query}, es retorna el resultat, i com s'ha vist al mètode post del fitxer app.js, en cas que la \textit{query} hagi fallat, et retorna l'error 500. En el cas que l'usuari s'hagi creat correctament, et redireccionarà a la pantalla de login.
 \end{enumerate}
-
+\newpage
 \subsection{New Story}
 Aquesta funcionalitat, dòna l'oportunitat de poder penjar una història a l'usuari en qüestió. Per poder implementar-ho, s'ha seguit els següents passos:
-\newpage
+
 \begin{enumerate}
 \item En primer lloc, s'ha creat un formulari el qual l'usuari ha d'omplir:
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[width=15cm]{images/image14}
 \centering
 \caption[Figura 4.9]{Pàgina de New Story.}
@@ -1609,7 +1620,7 @@ app.post('/redirect-after-post', requireLogin, (req, res) => {
 });
 \end{lstlisting}
 \end{enumerate}
-
+\newpage
 \subsection{Other User Profile}
 Aquesta funcionalitat permet poder veure el perfil d'un altre usuari. A difèrencia de les funcionalitats anteriors, aquesta es correspon a un get del fitxer app.js.\\ \\
 Per fer-ho s'ha procedit de la següent forma:
@@ -1743,6 +1754,61 @@ Addicionalment, per garantir més rigidesa de l'aplicació, el testeig ha estat 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 CONCLUSIONS                                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Implantació del Sistema}
+\section{Introducció}
+En aquest apartat, es descriurà com implantar el software en cas que alguna associació el vulgui utilitzar amb els seus membres.\\ \\
+S'explicarà com s'implantaria en un servidor Linux, quines lleis s'han de tenir en compte a l'hora d'utilitzar-lo, i com es faria perquè els usuaris el sabessin utilitzar.
+
+\subsection{Implantació en un servidor Linux}
+
+Per poder implantar el sistema en un servidor Linux s'hauran de seguir els següents passos:
+\begin{enumerate}
+\item Descarregar Neo4j del següent enllaç: \url{https://neo4j.com/download}
+\item Extraieu el contingut del fitxer utilitzant la següent comanda:
+\begin{lstlisting}
+$tar -xf "filecode"
+\end{lstlisting}
+Per exemple:
+\begin{lstlisting}
+$tar -xf neo4j-enterprise-2.3.1-unix.tar.gz
+\end{lstlisting}
+\item Dirigeix-te al fitxer que has extret i executa la següent comanda:
+\begin{lstlisting}
+$ /bin/neo4j start
+\end{lstlisting}
+Amb aquesta comanda s'inicialitzarà el servidor de Neo4j. Per defecte s'inicialitzarà a la següent ruta: \url{http://localhost:7474}
+\item Clona el repositori on es troba el codi:
+\begin{lstlisting}
+$ git clone https://github.com/daleu/makeyourfriend.git
+\end{lstlisting}
+\item Instal·la Node.js:
+\begin{lstlisting}
+$ sudo apt-get update
+$ sudo apt-get install npm
+$ sudo apt-get install nodejs-legacy
+\end{lstlisting}
+\item Navega a la carpeta on has descarregat el repositori i executa la següent comanda:
+\begin{lstlisting}
+$ npm install
+\end{lstlisting}
+Amb això, s'instal·laran totes les dependències del projecte.
+\item Finalment, des de la mateixa ruta, executa la següent comanda:
+\begin{lstlisting}
+$ node --use_strict app.js
+\end{lstlisting}
+\item Navega a la següent URL per utilitzar el sistema: \url{http://localhost:3000}
+\end{enumerate}
+
+\subsection{Lleis que apliquen}
+
+Pel que fa a les lleis que apliquen en el projecte, les associacions que vulguin utilitzar la plataforma, hauran de tenir en compte la Llei orgànica de protecció de dades de caràcter personal que es poden trobar en aquest URL:\\ \\
+\url{http://administraciojusticia.gencat.cat/web/.content/documents/arxius/lo15_1999lopdcp.pdf}\\ \\
+Aquestes lleis s'informaran amb anterioritat a les associacions que vulguin fer ús del \textit{software}.
+
+\subsection{Procediment d'aprenentatge}
+
+Una vegada el gestor del sistema ha instal·lat l'aplicació i ha fet els passos necessaris per poder regular totes les lleis, haurà d'ensenyar als usuaris com utilitzar el \textit{software}.\\ \\
+Per fer-ho es començarà amb una sessió, que doni a entendre el propòsit del sistema i com s'ha d'utilitzar. Els responsables de la sessió, estaran ajudant als usuaris en tot moment perquè puguin entendre el comportament del \textit{software}. A més, també s'explicarà els diferents conceptes de la xarxa social, com ara que és una història.
 
 \chapter{Conclusions}
 
@@ -1791,7 +1857,7 @@ Com s'ha dit anteriorment, el projecte és molt millorable, per tant, he pensat 
    \url{https://ca.wikipedia.org/wiki/Bulletin_Board_System}.
 
 \bibitem{WAR}
-   Aplicaciones para niños con Necesidades Educativas Especiales ....
+   Aplicaciones para niños con Necesidades Educativas Especiales.
    \newblock Consultat a 
    \url{http://www.chaval.es/chavales/educacion/aplicaciones-para-ni\%C3\%B1os-con-necesidades-educativas-especiales}.
 
@@ -1829,6 +1895,126 @@ Com s'ha dit anteriorment, el projecte és molt millorable, per tant, he pensat 
    Chart: Facebook Users Show No Signs of Tiring | Statista.
    \newblock Consultat a 
    \url{https://www.statista.com/chart/5380/facebook-user-engagement/}.
+   
+\bibitem{WAR}
+   Unitat de Tècniques Augmentatives de Comunicació (UTAC).
+   \newblock Consultat a 
+   \url{http://www.utac.cat/}.   
+
+\bibitem{WAR}
+   Associació Lectura Fàcil.
+   \newblock Consultat a 
+   \url{http://www.lecturafacil.net/}.
+   
+\bibitem{WAR}
+   ARASAAC: Portal Aragonés de la Comunicación Aumentativa y Alternativa.
+   \newblock Consultat a 
+   \url{http://www.arasaac.org/}.
+   
+\bibitem{WAR}
+   HTML - Wikipedia, la enciclopedia libre.
+   \newblock Consultat a 
+   \url{https://es.wikipedia.org/wiki/HTML}.     
+   
+\bibitem{WAR}
+   HTML Tutorial.
+   \newblock Consultat a 
+   \url{https://www.w3schools.com/html/}.   
+   
+\bibitem{WAR}
+   CSS Tutorial.
+   \newblock Consultat a 
+   \url{https://www.w3schools.com/css/}.  
+
+\bibitem{WAR}
+   JSON - Viquipèdia, l'enciclopèdia lliure.
+   \newblock Consultat a 
+   \url{https://ca.wikipedia.org/wiki/JSON}.     
+   
+\bibitem{WAR}
+   Neo4j, the world's leading graph database - Neo4j Graph Database.
+   \newblock Consultat a 
+   \url{https://neo4j.com/}.
+   
+\bibitem{WAR}
+   WebStorm: The Smartest JavaScript IDE.
+   \newblock Consultat a 
+   \url{https://www.jetbrains.com/webstorm/}.
+
+\bibitem{WAR}
+   Node.js.
+   \newblock Consultat a 
+   \url{https://nodejs.org/en/}.
+
+\bibitem{WAR}
+   expressjs/body-parser: Node.js body parsing middleware.
+   \newblock Consultat a 
+   \url{https://github.com/expressjs/body-parser}.   
+   
+\bibitem{WAR}
+   Bootstrap · The world's most popular mobile-first and responsive front-end framework.
+   \newblock Consultat a 
+   \url{http://getbootstrap.com/}.
+
+\bibitem{WAR}
+   dotenv.
+   \newblock Consultat a 
+   \url{https://www.npmjs.com/package/dotenv}.    
+   
+\bibitem{WAR}
+   jQuery.
+   \newblock Consultat a 
+   \url{https://jquery.com/}.
+
+\bibitem{WAR}
+   jQuery Validation Plugin | Form validation with jQuery.
+   \newblock Consultat a 
+   \url{https://jqueryvalidation.org/}.   
+
+\bibitem{WAR}
+   Getting Started – Pug.
+   \newblock Consultat a 
+   \url{https://pugjs.org/api/getting-started.html}.   
+
+\bibitem{WAR}
+   Font Awesome, the iconic font and CSS toolkit.
+   \newblock Consultat a 
+   \url{http://fontawesome.io}. 
+   
+\bibitem{WAR}
+   W3.CSS Home.
+   \newblock Consultat a 
+   \url{https://www.w3schools.com/w3css}.
+   
+\bibitem{WAR}
+   crypto.
+   \newblock Consultat a 
+   \url{https://www.npmjs.com/package/crypto}.
+   
+\bibitem{WAR}
+   client-session.
+   \newblock Consultat a 
+   \url{https://www.npmjs.com/package/client-session}.
+   
+\bibitem{WAR}
+   expressjs/multer: Node.js middleware for handling `multipart/form-data`.
+   \newblock Consultat a 
+   \url{https://github.com/expressjs/multer}.
+   
+\bibitem{WAR}
+   Moment.js | Docs.
+   \newblock Consultat a 
+   \url{https://momentjs.com/docs/}.
+
+\bibitem{WAR}
+   FullCalendar - JavaScript Event Calendar.
+   \newblock Consultat a 
+   \url{https://fullcalendar.io/}.
+   
+\bibitem{WAR}
+   Documentation - Materialize.
+   \newblock Consultat a 
+   \url{http://materializecss.com/}.
 
 \end{thebibliography}
 \cleardoublepage
