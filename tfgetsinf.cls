@@ -105,7 +105,7 @@
 \newcommand{\appendicesname}{Ap\`endixs}
 
 \addto\captionscatalan{%
-     \renewcommand{\titulacioname}{Enginyeria de Serveis i Sistemes d'Informació}
+     \renewcommand{\titulacioname}{Grau en Enginyeria Informàtica\\Enginyeria del Software}
      \renewcommand{\tfgname}{Treball fi de grau}
      \renewcommand{\authorname}{Autor}
      \renewcommand{\tutorname}{Tutor}
